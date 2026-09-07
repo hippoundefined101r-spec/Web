@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VAT MEBEL — мебель под ваш размер</title>
+<meta name="theme-color" content="#0e0d0b">
+<style>
+:root{
+  --bg:#0d0c0a; --panel:#141210; --soft:#1a1713; --line:rgba(255,255,255,.10);
+  --text:#f6f1e8; --muted:#aaa196; --gold:#d8b982; --gold2:#f0d9ac; --ink:#17120c;
+  --shadow:0 24px 80px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(900px 500px at 90% -5%,rgba(216,185,130,.10),transparent 65%),
+  #0d0c0a;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  overflow-x:hidden
+}
+button,input,textarea,select{font:inherit}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 18px}
+.top{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:linear-gradient(180deg,rgba(13,12,10,.88),rgba(13,12,10,.38),transparent);
+  backdrop-filter:blur(7px)
+}
+.topin{height:74px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:11px;align-items:center}
+.mark{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  color:#17120c;font-weight:900;letter-spacing:.04em;
+  background:linear-gradient(145deg,#f0d9ac,#b89256);
+  box-shadow:0 0 0 1px rgba(255,255,255,.18),0 12px 30px rgba(216,185,130,.16)
+}
+.brand b{display:block;font-size:14px;letter-spacing:.13em}
+.brand small{display:block;color:#aca397;font-size:10px;margin-top:2px;letter-spacing:.18em}
+.topcta{
+  border:1px solid rgba(240,217,172,.26);background:rgba(20,18,16,.62);color:#ead8b9;
+  padding:10px 14px;border-radius:999px;font-size:12px
+}
+.hero{min-height:100svh;display:grid;align-items:end;position:relative;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(180deg,rgba(6,6,5,.16) 0%,rgba(7,7,6,.18) 32%,rgba(10,9,8,.80) 79%,#0d0c0a 100%),
+    linear-gradient(90deg,rgba(8,7,6,.66),rgba(8,7,6,.10) 62%),
+    url("https://images.unsplash.com/photo-1769326541248-5e09a8ace25b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000");
+  background-size:cover;background-position:center;
+  transform:scale(1.02)
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0;height:220px;
+  background:linear-gradient(transparent,#0d0c0a)
+}
+.hero-content{position:relative;z-index:2;padding-top:145px;padding-bottom:55px;max-width:760px}
+.kicker{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#e4c78f}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(48px,7.4vw,94px);line-height:.92;margin:18px 0 20px;letter-spacing:-.045em}
+.hero p{font-size:clamp(16px,2.1vw,21px);line-height:1.5;max-width:620px;color:#ddd6cc;margin:0 0 28px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.primary{
+  border:0;background:linear-gradient(135deg,#f1dcb6,#c49b5b);
+  color:#17120c;padding:16px 22px;border-radius:16px;font-weight:800;cursor:pointer;
+  box-shadow:0 16px 40px rgba(196,155,91,.22);transition:.25s
+}
+.primary:hover{transform:translateY(-2px)}
+.secondary{
+  border:1px solid rgba(255,255,255,.16);background:rgba(20,18,16,.50);color:#f1ece4;
+  padding:16px 22px;border-radius:16px;backdrop-filter:blur(8px);cursor:pointer
+}
+.trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;color:#bcb2a6;font-size:12px}
+.trust span::before{content:"✦";color:#d5b578;margin-right:8px}
+
+section{padding:80px 0}
+.intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:26px;align-items:end}
+.eyebrow{color:#c8a86f;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.intro h2,.form-copy h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(36px,5vw,64px);line-height:1;margin:8px 0}
+.intro p,.form-copy p{color:var(--muted);font-size:16px;line-height:1.65}
+
+.gallery{display:grid;grid-template-columns:1.3fr .7fr;gap:12px;margin-top:28px}
+.cardimg{position:relative;overflow:hidden;border-radius:26px;min-height:360px;border:1px solid var(--line)}
+.cardimg.big{min-height:590px}
+.cardimg img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;transition:transform .7s ease}
+.cardimg:hover img{transform:scale(1.035)}
+.cardimg .cap{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(12,11,9,.52);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);padding:13px 14px;border-radius:15px;font-size:12px;color:#eee6da}
+.stack{display:grid;gap:12px}
+.stack .cardimg{min-height:289px}
+
+.flow{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px
+}
+.flowitem{padding:24px;border-radius:22px;background:linear-gradient(180deg,#171410,#11100e);border:1px solid var(--line)}
+.flowitem .n{font-family:Georgia,serif;color:#d6b578;font-size:34px}
+.flowitem b{display:block;margin:14px 0 8px;font-size:16px}
+.flowitem p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+
+.order{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start
+}
+.form-copy{position:sticky;top:100px}
+.formbox{border:1px solid var(--line);background:linear-gradient(180deg,#171410,#100f0d);border-radius:28px;padding:20px;box-shadow:var(--shadow)}
+.stepbar{display:flex;gap:7px;margin:4px 0 18px}
+.dot{height:4px;flex:1;background:#2a251f;border-radius:999px}
+.dot.on{background:linear-gradient(90deg,#b58b4d,#efd7aa)}
+.step{display:none}.step.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.step h3{font-size:25px;margin:4px 0 8px}
+.step .hint{font-size:13px;color:var(--muted);margin-bottom:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.choice{border:1px solid var(--line);background:#151310;border-radius:17px;padding:15px;cursor:pointer;min-height:96px;transition:.2s}
+.choice:hover,.choice.active{border-color:rgba(230,198,143,.54);background:#1e1913;box-shadow:inset 0 0 0 1px rgba(216,185,130,.10)}
+.choice .ico{font-size:22px;margin-bottom:10px}
+.choice b{font-size:13px}.choice small{display:block;color:#988f85;font-size:10px;margin-top:5px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:grid;gap:7px}.field.full{grid-column:1/-1}
+label{font-size:11px;color:#a3998e}
+input,textarea,select{
+  width:100%;border:1px solid var(--line);background:#0f0e0c;color:#f5efe6;
+  border-radius:14px;padding:14px 14px;outline:none
+}
+input:focus,textarea:focus,select:focus{border-color:#c7a468;box-shadow:0 0 0 3px rgba(199,164,104,.08)}
+textarea{min-height:120px;resize:vertical}
+.upload{
+  border:1px dashed rgba(216,185,130,.36);border-radius:16px;padding:17px;text-align:center;color:#cdbb9c;background:#12100d;cursor:pointer
+}
+.upload input{display:none}.upload strong{display:block;font-size:13px}.upload span{font-size:11px;color:#8f857a}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.back{border:1px solid var(--line);background:#16130f;color:#d8d0c6;padding:13px 16px;border-radius:14px;cursor:pointer}
+.next{margin-left:auto;border:0;background:linear-gradient(135deg,#eed5a7,#ba8e4b);color:#17120c;padding:13px 18px;border-radius:14px;font-weight:800;cursor:pointer}
+.summary{display:grid;gap:10px;margin-top:18px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid rgba(255,255,255,.06);padding:10px 0}
+.row span{color:#92897f;font-size:12px}.row b{text-align:right;font-size:13px}
+.note{margin-top:15px;padding:14px;border-radius:14px;background:rgba(216,185,130,.08);border:1px solid rgba(216,185,130,.18);color:#dbc8a7;font-size:12px;line-height:1.5}
+.done{display:none;padding:26px 10px 14px;text-align:center}
+.done .check{width:64px;height:64px;margin:auto;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ecd4aa,#b88b49);color:#16110b;font-size:28px;font-weight:900}
+.done h3{font-family:Georgia,serif;font-size:34px;margin:18px 0 8px}
+.done p{color:#a89f94;line-height:1.6}
+footer{padding:30px 0 50px;color:#746c63;font-size:11px;border-top:1px solid rgba(255,255,255,.05)}
+.demo-source{margin-top:10px;color:#5f5851}
+
+@media(max-width:860px){
+  .intro,.order{grid-template-columns:1fr}
+  .form-copy{position:static}
+  .gallery{grid-template-columns:1fr}
+  .cardimg.big{min-height:480px}
+  .stack{grid-template-columns:1fr 1fr}
+  .stack .cardimg{min-height:250px}
+}
+@media(max-width:620px){
+  .wrap{padding:0 12px}
+  .topin{height:66px}
+  .topcta{display:none}
+  .hero-content{padding-bottom:36px}
+  h1{font-size:54px}
+  .hero p{font-size:16px}
+  .primary,.secondary{width:100%}
+  section{padding:58px 0}
+  .intro h2,.form-copy h2{font-size:42px}
+  .cardimg.big{min-height:430px;border-radius:22px}
+  .stack{grid-template-columns:1fr 1fr}
+  .stack .cardimg{min-height:185px;border-radius:20px}
+  .flow{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .fields{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .formbox{padding:15px;border-radius:22px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap topin">
+    <div class="brand"><div class="mark">V</div><div><b>VAT MEBEL</b><small>АЛМАТЫ</small></div></div>
+    <button class="topcta" onclick="goForm()">Оставить заявку</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-content">
+    <div class="kicker">Мебель на заказ • Алматы</div>
+    <h1>Мебель, которая встаёт точно на своё место.</h1>
+    <p>Покажите, что хотите, укажите размеры и пожелания. Менеджер получит готовую заявку, всё посчитает и свяжется с вами.</p>
+    <div class="actions">
+      <button class="primary" onclick="goForm()">Оставить заявку</button>
+      <button class="secondary" onclick="document.querySelector('#works').scrollIntoView()">Посмотреть стиль</button>
+    </div>
+    <div class="trust"><span>Размеры указываете сами</span><span>Можно прикрепить пример</span><span>Стоимость считает менеджер</span></div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <div class="intro">
+      <div><div class="eyebrow">Идея для вашего пространства</div><h2>Сначала видим задачу. Потом считаем.</h2></div>
+      <p>Не нужно угадывать цену по калькулятору. Вы оставляете понятную заявку с размерами и примером. Менеджер смотрит её и уже после этого рассчитывает стоимость под конкретную мебель.</p>
+    </div>
+    <div class="gallery">
+      <div class="cardimg big">
+        <img alt="Современная кухня" src="https://images.unsplash.com/photo-1771270731051-9cfbb7222946?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+        <div class="cap">Кухни • чистые линии • тёплое дерево • камень</div>
+      </div>
+      <div class="stack">
+        <div class="cardimg">
+          <img alt="Гардеробная" src="https://images.unsplash.com/photo-1778731660303-1fa5ede75477?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+          <div class="cap">Гардеробные</div>
+        </div>
+        <div class="cardimg">
+          <img alt="Шкаф в спальне" src="https://images.unsplash.com/photo-1760072513393-b9d81f65dd7e?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+          <div class="cap">Шкафы и хранение</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flowitem"><div class="n">01</div><b>Вы выбираете мебель</b><p>Кухня, шкаф, гардеробная, прихожая или другой вариант.</p></div>
+      <div class="flowitem"><div class="n">02</div><b>Указываете размеры</b><p>Можно написать ширину, высоту, глубину и добавить комментарий.</p></div>
+      <div class="flowitem"><div class="n">03</div><b>Менеджер считает</b><p>После получения заявки менеджер сам рассчитывает цену и связывается с вами.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap order">
+    <div class="form-copy">
+      <div class="eyebrow">Заявка за пару минут</div>
+      <h2>Расскажите, что хотите сделать.</h2>
+      <p>Никаких калькуляторов. Чем понятнее размеры и пожелания, тем быстрее менеджер сможет посчитать ваш заказ.</p>
+    </div>
+
+    <div class="formbox">
+      <div id="wizard">
+        <div class="stepbar"><div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+        <div class="step active" data-step="0">
+          <h3>Что хотите заказать?</h3>
+          <div class="hint">Выберите один вариант</div>
+          <div class="grid3" id="types">
+            <div class="choice active" data-type="Кухня"><div class="ico">⌂</div><b>Кухня</b><small>Под ваш размер</small></div>
+            <div class="choice" data-type="Шкаф"><div class="ico">▥</div><b>Шкаф</b><small>Встроенный или отдельный</small></div>
+            <div class="choice" data-type="Гардеробная"><div class="ico">◇</div><b>Гардеробная</b><small>Хранение под ключ</small></div>
+            <div class="choice" data-type="Прихожая"><div class="ico">▤</div><b>Прихожая</b><small>Компактно и удобно</small></div>
+            <div class="choice" data-type="ТВ-зона"><div class="ico">▣</div><b>ТВ-зона</b><small>Тумба и панели</small></div>
+            <div class="choice" data-type="Другое"><div class="ico">＋</div><b>Другое</b><small>Опишите идею</small></div>
+          </div>
+          <div class="nav"><button class="next" onclick="nextStep()">Дальше</button></div>
+        </div>
+
+        <div class="step" data-step="1">
+          <h3>Укажите размеры</h3>
+          <div class="hint">Можно написать примерно. Менеджер уточнит детали после заявки.</div>
+          <div class="fields">
+            <div class="field"><label>Ширина, см</label><input id="w" inputmode="decimal" placeholder="Например, 320"></div>
+            <div class="field"><label>Высота, см</label><input id="h" inputmode="decimal" placeholder="Например, 260"></div>
+            <div class="field"><label>Глубина, см</label><input id="d" inputmode="decimal" placeholder="Например, 60"></div>
+            <div class="field"><label>Помещение</label><select id="room"><option>Кухня</option><option>Спальня</option><option>Прихожая</option><option>Гостиная</option><option>Другое</option></select></div>
+            <div class="field full"><label>Что важно учесть?</label><textarea id="details" placeholder="Например: нужен высокий пенал, место под холодильник, фасады без ручек..."></textarea></div>
+          </div>
+          <div class="nav"><button class="back" onclick="prevStep()">Назад</button><button class="next" onclick="nextStep()">Дальше</button></div>
+        </div>
+
+        <div class="step" data-step="2">
+          <h3>Покажите, что нравится</h3>
+          <div class="hint">Можно прикрепить фото, скрин или пример из интернета.</div>
+          <label class="upload">
+            <input id="file" type="file" accept="image/*">
+            <strong id="fileTitle">＋ Прикрепить фото или пример</strong>
+            <span id="fileSub">JPG, PNG или фото с телефона</span>
+          </label>
+          <div class="field" style="margin-top:12px"><label>Стиль / цвет</label><input id="style" placeholder="Например: тёплое дерево, светлый минимализм"></div>
+          <div class="nav"><button class="back" onclick="prevStep()">Назад</button><button class="next" onclick="nextStep()">Дальше</button></div>
+        </div>
+
+        <div class="step" data-step="3">
+          <h3>Куда связаться?</h3>
+          <div class="hint">Менеджер посмотрит заявку, сам рассчитает стоимость и напишет вам.</div>
+          <div class="fields">
+            <div class="field"><label>Имя</label><input id="name" placeholder="Ваше имя"></div>
+            <div class="field"><label>Телефон / WhatsApp</label><input id="phone" inputmode="tel" placeholder="+7 7__ ___ __ __"></div>
+          </div>
+          <div class="summary">
+            <div class="row"><span>Что нужно</span><b id="sType">Кухня</b></div>
+            <div class="row"><span>Размеры</span><b id="sSize">Не указаны</b></div>
+            <div class="row"><span>Стиль</span><b id="sStyle">Не указан</b></div>
+          </div>
+          <div class="note">Стоимость здесь специально не считается. Менеджер посмотрит размеры и пожелания и рассчитает цену вручную.</div>
+          <div class="nav"><button class="back" onclick="prevStep()">Назад</button><button class="next" onclick="submitDemo()">Отправить заявку</button></div>
+        </div>
+      </div>
+
+      <div class="done" id="done">
+        <div class="check">✓</div>
+        <h3>Заявка готова</h3>
+        <p>Менеджер получает тип мебели, размеры, пожелания, пример и ваш контакт. Дальше он сам считает стоимость и связывается с вами.</p>
+        <button class="primary" onclick="restart()">Оставить ещё одну заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    VAT MEBEL • Алматы • концепт страницы заявки
+    <div class="demo-source">В демо использованы временные интерьерные фото Unsplash. В финальной версии заменяются на реальные работы клиента.</div>
+  </div>
+</footer>
+
+<script>
+let step=0, selectedType="Кухня";
+const steps=[...document.querySelectorAll(".step")];
+const dots=[...document.querySelectorAll(".dot")];
+
+function showStep(n){
+  step=n;
+  steps.forEach((el,i)=>el.classList.toggle("active",i===n));
+  dots.forEach((el,i)=>el.classList.toggle("on",i<=n));
+  updateSummary();
+  document.querySelector(".formbox").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function nextStep(){ if(step<3) showStep(step+1); }
+function prevStep(){ if(step>0) showStep(step-1); }
+function goForm(){ document.querySelector("#order").scrollIntoView({behavior:"smooth"}); }
+
+document.querySelectorAll("#types .choice").forEach(el=>{
+  el.addEventListener("click",()=>{
+    document.querySelectorAll("#types .choice").forEach(x=>x.classList.remove("active"));
+    el.classList.add("active"); selectedType=el.dataset.type; updateSummary();
+  });
+});
+["w","h","d","style"].forEach(id=>document.getElementById(id).addEventListener("input",updateSummary));
+document.getElementById("file").addEventListener("change",e=>{
+  const f=e.target.files[0];
+  if(f){document.getElementById("fileTitle").textContent="✓ "+f.name;document.getElementById("fileSub").textContent="Фото прикреплено";}
+});
+function updateSummary(){
+  document.getElementById("sType").textContent=selectedType;
+  const vals=[document.getElementById("w").value,document.getElementById("h").value,document.getElementById("d").value];
+  document.getElementById("sSize").textContent=vals.some(Boolean)?`${vals[0]||"—"} × ${vals[1]||"—"} × ${vals[2]||"—"} см`:"Не указаны";
+  document.getElementById("sStyle").textContent=document.getElementById("style").value||"Не указан";
+}
+function submitDemo(){
+  const name=document.getElementById("name"), phone=document.getElementById("phone");
+  if(!name.value.trim()){name.focus();return}
+  if(!phone.value.trim()){phone.focus();return}
+  document.getElementById("wizard").style.display="none";
+  document.getElementById("done").style.display="block";
+}
+function restart(){
+  document.getElementById("wizard").style.display="";
+  document.getElementById("done").style.display="none";
+  showStep(0);
+}
+updateSummary();
+</script>
+</body>
+</html>
